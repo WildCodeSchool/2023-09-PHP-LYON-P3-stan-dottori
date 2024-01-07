@@ -1,0 +1,49 @@
+<nav class="container-fluid">
+    <ul>
+        <li>
+            <strong>
+                <a href="/">Stan Dottori</a>
+            </strong>
+        </li>
+    </ul>
+{% if user %}{% endif %}
+    <!-- changement de thème -->
+    <ul>
+        <li>
+            <button id="theme-toggle">
+                <span id="theme-icon" class="theme-icon">☼</span> <!-- sun -->
+            </button>
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <details role="list" dir"rtl">
+                <summary aria-haspopup="listbox" role="link">Menu</summary>
+                    <ul role="listbox">
+                        <li>
+                            <a href="/">Accueil</a>
+                        </li>
+{% if user %}{% else %}{% endif %}
+                    </ul>
+            </details>
+        </li>
+    </ul>
+</nav>
+<!-- script basculement de thème -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', function () {
+        var body = document.body;
+        var theme = body.getAttribute('data-theme');
+        var themeIcon = document.getElementById('theme-icon');
+        if (theme=== 'dark') {
+            body.setAttribute('data-theme', 'light');
+            themeIcon.innerHTML = '☼'//sun
+        } else {
+            body.setAttribute('data-theme', 'dark');
+            themeIcon.innerHTML = '&#9790;';//moon
+        }
+    });
+});
+</script>

@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
-$wild-color: #a306b6;
-$light: #fffbfb;
+
+$wild-color: #171617;
+$light: #F3EAE8;
 
 * {
     box-sizing: border-box;
@@ -11,6 +11,7 @@ body {
     background-color: $wild-color;
     color: $light;
 }
+
 
 
 .pink-stripe {
@@ -25,16 +26,33 @@ body {
 }
 
 .white-stripe {
-    background-color: white;
-    padding: 1rem;
-    width: 100%;
-    height: 50vh;
+
     display: flex;
     align-items: center;
     justify-content: center;
     img {
-        width: 500px;
+        width: 50%;
         max-width: 100%;
         height: auto;
     }
 }
+
+.scroll-down {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+        width: 10%;
+        height: auto;
+    }
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    scroll-behavior: smooth;
+}
+
