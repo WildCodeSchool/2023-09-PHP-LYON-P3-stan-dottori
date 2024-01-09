@@ -6,7 +6,7 @@
             </strong>
         </li>
     </ul>
-{% if user %}{% endif %}
+{# {% if user %}{% endif %} #}
     <!-- changement de thème -->
     <ul>
         <li>
@@ -22,8 +22,13 @@
                     <ul role="listbox">
                         <li>
                             <a href="/">Accueil</a>
+                            <a href="/book">Book</a>
+                            <a href="/flash">Flash</a>
+                            <a href="/guest">Guests</a>
+                            {# <a href="/contact">Contact</a> #}
+                            <a href="/youtube">TurboTattoo3000</a>
                         </li>
-{% if user %}{% else %}{% endif %}
+{# {% if user %}{% else %}{% endif %} #}
                     </ul>
             </details>
         </li>
