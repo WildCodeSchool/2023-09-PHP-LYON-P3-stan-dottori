@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" type="image/png" href="{{ asset('build/images/logo-wild-code-school.svg') }}"/>
+        <link rel="icon" type="image/png" href="{{ asset('build/images/Illustration_sans_titre.png') }}"/>
         <title>
             {% block title %}Projet 3 Name{% endblock %}
         </title>
@@ -15,8 +15,16 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
+
     </head>
     <body>
-        {% block body %}{% endblock %}
+     {# {% block navbar %}
+			{% include "home/navbar.html.twig" %}
+		{% endblock %} #}
+        {% block body %}
+    <div class="pink-stripe">
+        <img background-image: src="{{ asset('images/testeu.png') }}"
+             alt="">
+        {% endblock %}
     </body>
 </html>
