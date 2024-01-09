@@ -72,7 +72,7 @@ body {
 #biography {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 3%;
+    grid-gap: 2%;
     grid-auto-rows: minmax(12.5rem, auto);
 }
 
@@ -84,6 +84,7 @@ body {
     grid-column: 1/5;
     grid-row: 1;
 }
+
 #biography>#primary {
     margin-left: 5%;
     display: flex;
@@ -94,6 +95,7 @@ body {
     grid-column: 1;
     grid-row: 2/5;
 }
+
 #biography>#secondary {
     display: flex;
     flex-direction: row-reverse;
@@ -115,6 +117,7 @@ body {
     grid-column: 2/5;
     grid-row: 2;
 }
+
 #biography>#second-part {
     display: flex;
     align-items: center;
@@ -122,9 +125,22 @@ body {
     margin-left: 5%;
     margin-right: 5%;
     font-size: 1rem;
-    grid-column: 1/3;
+    grid-column: 1/5;
     grid-row: 3;
 }
+
+#biography>#third-part {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: 1rem;
+    grid-column: 1/3;
+    grid-row: 4;
+}
+
+
 
 // h1 {
 //     font-size: 1rem;
