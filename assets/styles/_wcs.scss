@@ -2,9 +2,9 @@
 $dark-color: #171617;
 $light: #F3EAE8;
 
+
 * {
     box-sizing: border-box;
-    color: $light;
     scroll-behavior: smooth;
 }
 
@@ -12,7 +12,21 @@ body {
     margin:0;
     background-color: $dark-color;
     background-image: url("../images/testeu.png");
+    color: $light;
 }
+
+.stripe {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+        width: 50%;
+        max-width: 100%;
+        height: auto;
+    }
+}
+
 
 .home-scroll {
     height: 100vh;
@@ -29,29 +43,6 @@ body {
 }
 
 
-// .pink-stripe {
-//     height: 50vh;
-//     width: 100%;
-//     display: flex;
-//     font-family: 'Varela Round', sans-serif;
-//     text-align: center;
-//     font-size: clamp(2rem, 5vw, 3rem);
-//     align-items: center;
-//     justify-content: center;
-// }
-
-.white-stripe {
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    img {
-        width: 50%;
-        max-width: 100%;
-        height: auto;
-    }
-}
-
 .home-scroll>a {
     position: relative;
     display: flex;
@@ -60,7 +51,6 @@ body {
     margin-top: 5%;
     left: 50%;
     transform: translateX(-50%);
-    // z-index: 3;
     scroll-behavior: smooth;
     img {
         width: 10%;
@@ -140,13 +130,18 @@ body {
     grid-row: 4;
 }
 
+[data-theme="light"] {
+    background-color: $light;
+    background-image: url("../images/testeu_blanc.png");
+    color: $dark-color;
+}
 
-
-// h1 {
-//     font-size: 1rem;
-//     display: flex;
-//     justify-content: center;
-// }
+[data-theme='light'] a,
+[data-theme="light"] .btn {
+    background-color: $light;
+    color: $dark-color;
+    /* ... autres styles ... */
+}
 
 
 

@@ -4,13 +4,13 @@
 
 {% block body %}
 <section class="home-scroll">
-    <div class="white-stripe">
-        <img src="{{ asset('build/images/Illustration_sans_titre.png') }}" alt="">
+    <div class="stripe">
+        <img src="{{ asset('build/images/white_logo.png') }}" alt="">
     </div>
     <h2>Click to join Stan dottori's world</h2>
-    {# <div class="scroll-down"><img src="{{ asset('build/images/white_arrow.png')}}"></div> #}
-    <a href="#biography"><img src="{{ asset('build/images/white_arrow.png')}}"></a>
+        <a href="#biography"><img src="{{ asset('build/images/white_arrow.png')}}"></a>
     </section>
+    {% include 'home/_navbar.html.twig' %}
     <section id="biography">
         <h1>Stan Dottori superstar tattoo Artist</h1>
 
