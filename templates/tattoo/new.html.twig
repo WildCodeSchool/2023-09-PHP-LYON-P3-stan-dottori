@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Tattoo{% endblock %}
+
+{% block body %}
+    <h1>Upload new Tattoo</h1>
+
+    {{ include('tattoo/_form.html.twig') }}
+
+    <a href="{{ path('app_tattoo_index') }}">back to list</a>
+{% endblock %}

@@ -11,6 +11,8 @@ import './styles/app.scss';
 // start the Stimulus application
 import './bootstrap';
 
+require('bootstrap');
+
 document.addEventListener('DOMContentLoaded', function() {
     var themeToggle = document.getElementById('theme-toggle');
     themeToggle.addEventListener('click', function () {
