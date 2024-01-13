@@ -7,21 +7,17 @@
 	{% include 'home/_navbar.html.twig' %}
 	<h1 id="tattoo-index">Stan's Book</h1>
 
-	<table class="table">
-		<tbody>
-			{% for tattoo in tattoos %}
-				<a href="{{ path('app_tattoo_show', {'id': tattoo.id}) }}">
-					<img id="tattoo" src="{{ vich_uploader_asset(tattoo) }}" alt="{{ tattoo.id }}">
-				</a>
-				<a href="{{ path('app_tattoo_edit', {'id': tattoo.id}) }}">
-					edit</a>
-			{% else %}
-				<tr>
-					<td colspan="6">no records found</td>
-				</tr>
-			{% endfor %}
-		</tbody>
-	</table>
+	{% for tattoo in tattoos %}
+		<a href="{{ path('app_tattoo_show', {'id': tattoo.id}) }}">
+			<img id="tattoo" src="{{ vich_uploader_asset(tattoo) }}" alt="{{ tattoo.id }}">
+		</a>
+		<a href="{{ path('app_tattoo_edit', {'id': tattoo.id}) }}">
+			edit</a>
+	{% else %}
+		<tr>
+			<td colspan="6">no records found</td>
+		</tr>
+	{% endfor %}
 
 	<a href="{{ path('app_tattoo_new') }}">Create new</a>
 {% endblock %}
