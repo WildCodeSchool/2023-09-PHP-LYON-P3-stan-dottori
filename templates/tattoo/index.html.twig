@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tattoo index
+{% endblock %}
+
+{% block body %}
+	{% include 'home/_navbar.html.twig' %}
+	<h1 id="tattoo-index">Stan's Book</h1>
+
+	{% for tattoo in tattoos %}
+		<a href="{{ path('app_tattoo_show', {'id': tattoo.id}) }}">
+			<img id="tattoo" src="{{ vich_uploader_asset(tattoo) }}" alt="{{ tattoo.id }}">
+		</a>
+		<a href="{{ path('app_tattoo_edit', {'id': tattoo.id}) }}">edit</a>
+	{% else %}
+		<h3>no records found</h3>
+	{% endfor %}
+	<br><a href="{{ path('app_tattoo_new') }}">Create new</a>
+{% endblock %}

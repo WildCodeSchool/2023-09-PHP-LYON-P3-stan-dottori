@@ -1,0 +1,9 @@
+{{ form_start(form) }}
+<fieldset>
+{{ form_row (form.realisationTime) }}
+{{ form_row (form.price) }}
+{{ form_row (form.madeOn) }}
+{{ form_row (form.posterFile) }}
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
