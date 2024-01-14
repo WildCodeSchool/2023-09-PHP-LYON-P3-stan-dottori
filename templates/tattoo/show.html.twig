@@ -6,14 +6,10 @@
 {% block body %}
 	{% include 'home/_navbar.html.twig' %}
 	<h1>Tattoo made in
-		{{ tattoo.madeOn ? tattoo.madeOn|date('Y-m-d') : '' }}</h1>
-
-	<td><img id="show-tattoo" src="{{ vich_uploader_asset(tattoo) }}" alt="{{ tattoo.id }}"></td>
-
-
+		{{ tattoo.madeOn ? tattoo.madeOn|date('Y-m-d') : '' }}
+	</h1>
+	<img id="show-tattoo" src="{{ vich_uploader_asset(tattoo) }}" alt="{{ tattoo.id }}">
 	<a href="{{ path('app_tattoo_index') }}">back to list</a>
-
 	<a href="{{ path('app_tattoo_edit', {'id': tattoo.id}) }}">edit</a>
-
 	{{ include('tattoo/_delete_form.html.twig') }}
 {% endblock %}

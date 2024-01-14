@@ -11,13 +11,9 @@
 		<a href="{{ path('app_tattoo_show', {'id': tattoo.id}) }}">
 			<img id="tattoo" src="{{ vich_uploader_asset(tattoo) }}" alt="{{ tattoo.id }}">
 		</a>
-		<a href="{{ path('app_tattoo_edit', {'id': tattoo.id}) }}">
-			edit</a>
+		<a href="{{ path('app_tattoo_edit', {'id': tattoo.id}) }}">edit</a>
 	{% else %}
-		<tr>
-			<td colspan="6">no records found</td>
-		</tr>
+		<h3>no records found</h3>
 	{% endfor %}
-
-	<a href="{{ path('app_tattoo_new') }}">Create new</a>
+	<br><a href="{{ path('app_tattoo_new') }}">Create new</a>
 {% endblock %}
