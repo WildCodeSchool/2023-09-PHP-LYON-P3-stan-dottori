@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Flash
+{% endblock %}
+
+{% block body %}
+	{% include 'home/_navbar.html.twig' %}
+	<div class="card">
+		<a href="{{ path('app_flash_show', {'id': flash.id}) }}"><img src="{{ vich_uploader_asset(flash) }}" class="card-img-top" alt="{{ flash.id }}"></a>
+		<div class="card-body">
+			<h5 class="card-title">Flash name</h5>
+			<p class="card-text">Description</p>
+		</div>
+		<ul class="list-group list-group-flush">
+			<li class="list-group-item">{{ flash.realisationTime ? flash.realisationTime|date('H:i') : '' }}</li>
+			<li class="list-group-item">{{ flash.price }}€</li>
+			<li class="list-group-item">{{ flash.available ? 'Yes' : 'No' }}</li>
+		</ul>
+	</div>
+	<a href="{{ path('app_flash_index') }}">back to list</a>
+	<a href="{{ path('app_flash_edit', {'id': flash.id}) }}">edit</a>
+	{{ include('flash/_delete_form.html.twig') }}
+{% endblock %}

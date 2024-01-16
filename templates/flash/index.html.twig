@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Flash index
+{% endblock %}
+
+{% block body %}
+	{% include 'home/_navbar.html.twig' %}
+	<h1 id="flash-index">Flash</h1>
+
+	{% for flash in flashes %}
+		<div id="card">
+			<a href="{{ path('app_flash_show', {'id': flash.id}) }}"><img id="flash" src="{{ vich_uploader_asset(flash) }}" class="card-img-top" alt="{{ flash.id }}"></a>
+			<div class="card-body">
+				<h5 class="card-title">Flash title</h5>
+				<p class="card-text">
+					<h6>{{ flash.realisationTime ? flash.realisationTime|date('H:i') : '' }}</h6>
+					<h6>{{ flash.price }}€</h6>
+					<h6>Available :
+						{{ flash.available ? 'Yes' : 'No' }}</h6>
+				</p>
+			</div>
+		</div>
+		<a href="{{ path('app_flash_edit', {'id': flash.id}) }}">edit</a>
+	{% else %}
+		<h3>no records found</h3>
+	{% endfor %}
+
+	<a href="{{ path('app_flash_new') }}">Create new</a>
+{% endblock %}
