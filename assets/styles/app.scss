@@ -250,18 +250,6 @@ background-color: rgba(var(--bs-black-rgb), var(--bs-bg-opacity)) !important;
     /* ... autres styles ... */
 }
 
-#tattoo {
-    background: rgba( 74, 74, 74, 0.35 );
-    box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.37);
-    backdrop-filter: blur( 3.5px );
-    -webkit-backdrop-filter: blur( 3.5px );
-    border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
-    width: 50%;
-    height: auto;
-    margin: auto;
-}
-
 #show-tattoo {
     background: rgba( 74, 74, 74, 0.35 );
     box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.37);
@@ -296,6 +284,7 @@ background-color: rgba(var(--bs-black-rgb), var(--bs-bg-opacity)) !important;
     width: 50%;
     height: auto;
     margin: auto;
+    margin-top: 5vw;
 }
 
 #card {
@@ -308,6 +297,7 @@ background-color: rgba(var(--bs-black-rgb), var(--bs-bg-opacity)) !important;
     width: 50%;
     height: auto;
     margin: auto;
+    margin-top: 5vw;
 }
 
 .card-title {
@@ -421,7 +411,33 @@ h6 {
     }
 }
 
+@media(min-width: 819px) {
+    .card {
+        background: rgba( 74, 74, 74, 0.35 );
+        box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.37);
+        backdrop-filter: blur( 3.5px );
+        -webkit-backdrop-filter: blur( 3.5px );
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+        width: 30%;
+        height: auto;
+        margin: auto;
+        margin-top: 5vw;
+    }
 
+    #card {
+        background: rgba( 74, 74, 74, 0.35 );
+        box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.37);
+        backdrop-filter: blur( 3.5px );
+        -webkit-backdrop-filter: blur( 3.5px );
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+        width: 30%;
+        height: auto;
+        margin: auto;
+        margin-top: 5vw;
+    }
+}
 
 
 
