@@ -11,7 +11,6 @@
 		<div id="card">
 			<a href="{{ path('app_tattoo_show', {'id': tattoo.id}) }}"><img id="tattoo" src="{{ vich_uploader_asset(tattoo) }}" class="card-img-top" alt="{{ tattoo.id }}"></a>
 			<div class="card-body">
-				<h5 class="card-title">Tattoo title</h5>
 				<p class="card-text">
 					<h6>{{ tattoo.madeOn ? tattoo.madeOn|date('d-m-Y') : '' }}</h6>
 					<h6>{{ tattoo.price }}€</h6>
