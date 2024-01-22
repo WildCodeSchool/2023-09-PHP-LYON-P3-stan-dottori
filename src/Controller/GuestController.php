@@ -77,7 +77,7 @@ class GuestController extends AbstractController
     #[Route('/{id}', name: 'app_guest_delete', methods: ['POST'])]
     public function delete(Request $request, Guest $guest, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$guest->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $guest->getId(), $request->request->get('_token'))) {
             $entityManager->remove($guest);
             $entityManager->flush();
         }

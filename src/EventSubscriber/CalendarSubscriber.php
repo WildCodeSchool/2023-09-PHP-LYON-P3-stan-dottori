@@ -14,8 +14,8 @@ class CalendarSubscriber implements EventSubscriberInterface
     public function __construct(
         private GuestRepository $guestRepository,
         private UrlGeneratorInterface $router
-    )
-    {}
+    ) {
+    }
 
     public static function getSubscribedEvents()
     {
@@ -24,11 +24,11 @@ class CalendarSubscriber implements EventSubscriberInterface
         ];
     }
 
-    public function onCalendarSetData(CalendarEvent $calendar)
+    public function onCalendarSetData(CalendarEvent $calendar): void
     {
         $start = $calendar->getStart();
         $end = $calendar->getEnd();
-        $filters = $calendar->getFilters();
+        // $filters = $calendar->getFilters();
 
         // Modify the query to fit to your entity and needs
         // Change booking.beginAt by your start date property
