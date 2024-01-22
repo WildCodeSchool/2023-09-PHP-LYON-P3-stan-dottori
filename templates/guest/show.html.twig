@@ -7,8 +7,8 @@
         <h1>{{ guest.city }}</h1>
 	<div class="card">
 		<a href="{{ path('app_guest_show', {'id': guest.id}) }}">
-        {# <img src="{{ vich_uploader_asset(guest) }}" class="card-img-top" alt="{{ guest.id }}"> #}
-        </a>
+        <img src="{{ vich_uploader_asset(guest) }}" class="card-img-top" alt="{{ guest.id }}">
+        
 		<div class="card-body">
 			<h5 class="card-title">{{ guest.shop }}</h5>
 			<p class="card-text">du {{ guest.beginAt ? guest.beginAt|date('d-m-Y') : '' }} au {{ guest.endAt ? guest.endAt|date('d-m-Y') : '' }}</p>

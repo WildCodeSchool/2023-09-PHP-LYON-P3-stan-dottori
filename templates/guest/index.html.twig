@@ -9,8 +9,7 @@
         {% for guest in guests %}
         <div id="calendar-holder"></div>
         		<div id="card">
-			<a href="{{ path('app_guest_show', {'id': guest.id}) }}">
-            {# <img id="tattoo" src="{{ vich_uploader_asset(guest) }}" class="card-img-top" alt="{{ guest.id }}"> #}
+			<a href="{{ path('app_guest_show', {'id': guest.id}) }}"><img id="tattoo" src="{{ vich_uploader_asset(guest) }}" class="card-img-top" alt="{{ guest.id }}"></a>
 			<div class="card-body">
 				<p class="card-text">
 					<h6>{{ guest.city }}</h6>
