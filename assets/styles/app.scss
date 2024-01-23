@@ -62,6 +62,7 @@ body {
 }
 
 .navbar-brand {
+    width: 100%;
     position: sticky;
 }
 
@@ -171,6 +172,11 @@ div>#calendar-holder {
     color: $light;
   }
 
+  .fc .fc-toolbar.fc-header-toolbar {
+    margin: auto;
+    margin-bottom: 3.125vw;
+  }
+
 .bg-light {
     --bs-bg-opacity: 1;
 background-color: rgba(var(--bs-black-rgb), var(--bs-bg-opacity)) !important;
@@ -256,6 +262,21 @@ background-color: rgba(var(--bs-black-rgb), var(--bs-bg-opacity)) !important;
       .fc .fc-daygrid-day-number {
         text-decoration: none;
         color: $dark-color;
+      }
+
+      @media(min-width: 819px) {
+        .card,  #card {
+            background: rgba( 74, 74, 74, 0.35 );
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 3.5px );
+            -webkit-backdrop-filter: blur( 3.5px );
+            border-radius: 10px;
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+            width: 30%;
+            height: auto;
+            margin: auto;
+            margin-top: 5vw;
+        }
       }
 }
 
@@ -496,7 +517,9 @@ h6 {
         margin: auto;
         margin-top: 5vw;
     }
+
 }
+
 
 
 
