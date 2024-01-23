@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Guest index{% endblock %}
+
+{% block body %}
+{% include 'home/_navbar.html.twig' %}
+{% include 'guest/_calendar.html.twig' %}
+    <h1>Guest index</h1>
+        {% for guest in guests %}
+        <div id="calendar-holder"></div>
+        		<div id="card">
+			<a href="{{ path('app_guest_show', {'id': guest.id}) }}"><img id="tattoo" src="{{ vich_uploader_asset(guest) }}" class="card-img-top" alt="{{ guest.id }}"></a>
+			<div class="card-body">
+				<p class="card-text">
+					<h6>{{ guest.city }}</h6>
+					<h6>{{ guest.shop }}</h6>
+                    <h6>{{ guest.beginAt ? guest.beginAt|date('d-m-Y H:i') : '' }}</h6>
+                    <h6>{{ guest.endAt ? guest.endAt|date('d-m-Y H:i') : '' }}</h6>
+				</p>
+			</div>
+		</div>
+                    <a href="{{ path('app_guest_show', {'id': guest.id}) }}">show</a>
+                    <a href="{{ path('app_guest_edit', {'id': guest.id}) }}">edit</a>
+        {% else %}
+		<h3>no records found</h3>
+        {% endfor %}
+
+    <a href="{{ path('app_guest_new') }}">Create new</a>
+{% endblock %}

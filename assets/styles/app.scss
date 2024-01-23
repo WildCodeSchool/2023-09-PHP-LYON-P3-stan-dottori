@@ -61,6 +61,11 @@ body {
     }
 }
 
+.navbar-brand {
+    width: 100%;
+    position: sticky;
+}
+
 #biography {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -144,6 +149,34 @@ body {
     grid-row: 4;
 }
 
+div>#calendar-holder {
+    width: 80%;
+    height: auto;
+    margin: auto;
+}
+
+.fc .fc-col-header-cell-cushion {
+    display: inline-block;
+    padding: 2px 4px;
+    color: $light;
+  }
+
+  .fc-direction-ltr {
+    width: 80%;
+    height: auto;
+    margin: auto;
+  }
+
+  .fc .fc-daygrid-day-number {
+    text-decoration: none;
+    color: $light;
+  }
+
+  .fc .fc-toolbar.fc-header-toolbar {
+    margin: auto;
+    margin-bottom: 3.125vw;
+  }
+
 .bg-light {
     --bs-bg-opacity: 1;
 background-color: rgba(var(--bs-black-rgb), var(--bs-bg-opacity)) !important;
@@ -202,7 +235,7 @@ background-color: rgba(var(--bs-black-rgb), var(--bs-bg-opacity)) !important;
         border-radius: 10px;
         border: 1px solid rgba( 255, 255, 255, 0.18 );
     }
-    
+
     #biography>#secondary {
         display: flex;
         flex-direction: row-reverse;
@@ -219,7 +252,32 @@ background-color: rgba(var(--bs-black-rgb), var(--bs-bg-opacity)) !important;
         border-radius: 10px;
         border: 1px solid rgba( 255, 255, 255, 0.18 );
     }
-    
+
+    .fc .fc-col-header-cell-cushion {
+        display: inline-block;
+        padding: 2px 4px;
+        color: $dark-color;
+      }
+
+      .fc .fc-daygrid-day-number {
+        text-decoration: none;
+        color: $dark-color;
+      }
+
+      @media(min-width: 819px) {
+        .card,  #card {
+            background: rgba( 74, 74, 74, 0.35 );
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 3.5px );
+            -webkit-backdrop-filter: blur( 3.5px );
+            border-radius: 10px;
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+            width: 30%;
+            height: auto;
+            margin: auto;
+            margin-top: 5vw;
+        }
+      }
 }
 
 [data-theme='light'] a,
@@ -296,7 +354,7 @@ h6 {
         grid-gap: 2%;
         grid-auto-rows: minmax(12rem, auto);
     }
-    
+
     #biography>h1 {
         display: flex;
         align-items: center;
@@ -305,7 +363,7 @@ h6 {
         grid-column: 1/5;
         grid-row: 1;
     }
-    
+
     #biography>#primary {
         margin-left: 5%;
         display: flex;
@@ -316,7 +374,7 @@ h6 {
         grid-column: 1;
         grid-row: 2/5;
     }
-    
+
     #biography>#secondary {
         display: flex;
         flex-direction: row-reverse;
@@ -327,7 +385,7 @@ h6 {
         margin-left: auto;
         margin-right: 5%;
     }
-    
+
     #biography>#first-part {
         display: flex;
         align-items: center;
@@ -338,7 +396,7 @@ h6 {
         grid-column: 2/5;
         grid-row: 2;
     }
-    
+
     #biography>#second-part {
         display: flex;
         align-items: center;
@@ -349,7 +407,7 @@ h6 {
         grid-column: 1/5;
         grid-row: 3;
     }
-    
+
     #biography>#third-part {
         display: flex;
         align-items: center;
@@ -369,7 +427,7 @@ h6 {
         grid-gap: 2%;
         grid-auto-rows: minmax(12rem, auto);
     }
-    
+
     #biography>h1 {
         display: flex;
         align-items: center;
@@ -378,7 +436,7 @@ h6 {
         grid-column: 1/5;
         grid-row: 1;
     }
-    
+
     #biography>#primary {
         margin-left: 5%;
         display: flex;
@@ -389,7 +447,7 @@ h6 {
         grid-column: 1;
         grid-row: 2/5;
     }
-    
+
     #biography>#secondary {
         display: flex;
         flex-direction: row-reverse;
@@ -400,7 +458,7 @@ h6 {
         margin-left: auto;
         margin-right: 5%;
     }
-    
+
     #biography>#first-part {
         display: flex;
         align-items: center;
@@ -411,7 +469,7 @@ h6 {
         grid-column: 2/5;
         grid-row: 2;
     }
-    
+
     #biography>#second-part {
         display: flex;
         align-items: center;
@@ -422,7 +480,7 @@ h6 {
         grid-column: 1/5;
         grid-row: 3;
     }
-    
+
     #biography>#third-part {
         display: flex;
         align-items: center;
@@ -459,7 +517,9 @@ h6 {
         margin: auto;
         margin-top: 5vw;
     }
+
 }
+
 
 
 
