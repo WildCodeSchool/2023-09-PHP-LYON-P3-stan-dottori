@@ -43,31 +43,4 @@ cards.forEach(card => {
   observer.observe(card)
 })
 
-document.addEventListener('DOMContentLoaded', () => {
-  var calendarEl = document.getElementById('calendar-holder');
-
-  var calendar = new FullCalendar.Calendar(calendarEl, {
-      defaultView: 'dayGridMonth',
-      editable: true,
-      eventSources: [
-          {
-              url: "{{ path('fc_load_events') }}",
-              method: "POST",
-              extraParams: {
-                  filters: JSON.stringify({})
-              },
-              failure: () => {
-                  // alert("There was an error while fetching FullCalendar!");
-              },
-          },
-      ],
-      headerToolbar: {
-          start: 'prev,next today',
-          center: 'title',
-          end: 'dayGridMonth,timeGridWeek,timeGridDay'
-      },
-      timeZone: 'UTC',
-  });
-  calendar.render();
-});
 

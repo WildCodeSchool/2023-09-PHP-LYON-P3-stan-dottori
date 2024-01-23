@@ -14,6 +14,7 @@ class GuestType extends AbstractType
     {
         $builder
             ->add('city')
+            ->add('title')
             ->add('shop')
             ->add('beginAt')
             ->add('endAt')
