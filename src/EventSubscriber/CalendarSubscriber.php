@@ -33,13 +33,14 @@ class CalendarSubscriber implements EventSubscriberInterface
         // Modify the query to fit to your entity and needs
         // Change booking.beginAt by your start date property
         $bookings = $this->guestRepository
-            ->createQueryBuilder('booking')
-            ->where('booking.beginAt BETWEEN :start and :end OR booking.endAt BETWEEN :start and :end')
+            ->createQueryBuilder('guest')
+            ->where('guest.beginAt BETWEEN :start and :end OR guest.endAt BETWEEN :start and :end')
             ->setParameter('start', $start->format('d-m-Y H:i'))
             ->setParameter('end', $end->format('d-m-Y H:i'))
             ->getQuery()
             ->getResult()
         ;
+
 
         foreach ($bookings as $booking) {
             // this create the events with your data (here booking data) to fill calendar
