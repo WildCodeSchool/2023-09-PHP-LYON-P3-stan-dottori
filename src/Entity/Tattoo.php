@@ -20,8 +20,8 @@ class Tattoo
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $realisationTime = null;
+    #[ORM\Column(type: Types::TIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $realisationTime = null;
 
     #[ORM\Column(nullable: true)]
     private ?int $price = null;
@@ -48,12 +48,12 @@ class Tattoo
         return $this->id;
     }
 
-    public function getRealisationTime(): ?int
+    public function getRealisationTime(): ?\DateTimeInterface
     {
         return $this->realisationTime;
     }
 
-    public function setRealisationTime(int $realisationTime): static
+    public function setRealisationTime(\DateTimeInterface $realisationTime): static
     {
         $this->realisationTime = $realisationTime;
 

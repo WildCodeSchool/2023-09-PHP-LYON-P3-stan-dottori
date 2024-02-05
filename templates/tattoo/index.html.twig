@@ -8,7 +8,7 @@
 	<h1 id="tattoo-index">Stan's Book</h1>
 
 	{% for tattoo in tattoos %}
-		<div id="card">
+		<div class="card">
 			<a href="{{ path('app_tattoo_show', {'id': tattoo.id}) }}"><img id="tattoo" src="{{ vich_uploader_asset(tattoo) }}" class="card-img-top" alt="{{ tattoo.id }}"></a>
 			<div class="card-body">
 				<p class="card-text">

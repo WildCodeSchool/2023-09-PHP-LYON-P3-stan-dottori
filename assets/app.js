@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-const cards = document.querySelectorAll("card")
+const links = document.querySelectorAll(".link")
 
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -39,6 +39,15 @@ const observer = new IntersectionObserver(entries => {
   threshold: 1,
 })
 
-cards.forEach(card => {
-  observer.observe(card)
+links.forEach(link => {
+  observer.observe(link)
 })
+
+window.addEventListener('scroll', function() {
+  var navbar = document.querySelector('.navbar');
+  if (window.scrollY > window.innerHeight) {
+      navbar.classList.add('navbar-visible');
+  } else {
+      navbar.classList.remove('navbar-visible');
+  }
+});
