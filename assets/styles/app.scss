@@ -16,10 +16,6 @@ body {
     background-image: url("../images/testeu.png");
 }
 
-// body.specific-style {
-//     background-image: none !important;
-// }
-
 //--------------- Home page -------------//
 
 .header-scroll {
@@ -620,7 +616,7 @@ button.btn.btn-lg.btn-primary {
     }
 }
 
-@media(min-width: 819px) {
+@media(min-width: 992px) {
     .card {
         background: rgba(74, 74, 74, 0.35);
         box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.37);
@@ -690,19 +686,15 @@ button.btn.btn-lg.btn-primary {
     }
 }
 
-//   .card-container {
-//     display: grid;
-//     white-space: nowrap;
-//     overflow-x: auto;
-//     gap: 2%;
-// }
+  .card-container {
+    display: grid;
+    white-space: nowrap;
+    overflow-x: auto;
+    gap: 2%;
+}
 
-// .card {
-//     flex: 0 0 auto;
-//     width: 10%;
-//     height: auto;
-// }
+.card {
+    flex: 0 0 auto;
+    height: auto;
+}
 
-// img#flash {
-//     width: 30%;
-// }

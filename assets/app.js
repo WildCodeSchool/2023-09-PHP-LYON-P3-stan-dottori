@@ -21,10 +21,10 @@ document.addEventListener('DOMContentLoaded', function() {
         var themeIcon = document.getElementById('theme-icon');
         if (theme=== 'dark') {
             body.setAttribute('data-theme', 'light');
-            themeIcon.innerHTML = '☼'//sun
+            themeIcon.innerHTML = '<i class="fa-solid fa-sun"></i>'//sun
         } else {
             body.setAttribute('data-theme', 'dark');
-            themeIcon.innerHTML = '&#9790;';//moon
+            themeIcon.innerHTML = '<i class="fa-solid fa-moon"></i>';//moon
         }
     });
 });
