@@ -1,4 +1,3 @@
-
 $dark-color: #171617;
 $light: #F3EAE8;
 @import "~bootstrap/scss/bootstrap";
@@ -6,46 +5,33 @@ $light: #F3EAE8;
 * {
     box-sizing: border-box;
     scroll-behavior: smooth;
-
 }
 
 body {
-    margin:0;
+    margin: 0;
     background-color: $dark-color;
-    background-image: url("../images/testeu.png");
     color: $light;
     height: 100vh;
+    width: 100vw;
+    background-image: url("../images/testeu.png");
 }
 
-.stripe {
+//--------------- Home page -------------//
 
+.header-scroll {
+    background-image: none;
+}
+
+.header-content>h2 {
     display: flex;
     align-items: center;
     justify-content: center;
-    img {
-        width: 50%;
-        max-width: 100%;
-        height: auto;
-    }
+    animation: fade-out linear;
+    animation-timeline: view();
+    animation-range: exit -200px;
 }
 
-
-.home-scroll {
-    height: 100vh;
-}
-
-.home-scroll>h2 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#biography {
-    height: 90vh;
-}
-
-
-.home-scroll>a {
+.header-content>a {
     position: relative;
     display: flex;
     align-items: center;
@@ -54,100 +40,293 @@ body {
     left: 50%;
     transform: translateX(-50%);
     scroll-behavior: smooth;
-    img {
-        width: 10%;
-        height: auto;
+    font-size: 3rem;
+    text-decoration: none;
+    color: $light;
+}
 
+//--------- Ceci n'est pas du code mort mais un outils ! -----------------//
+
+// .scroll-watcher {
+//     height: 10px;
+//     position: fixed;
+//     top: 0;
+//     z-index: 1000;
+//     background-color: lime;
+//     width: 100%;
+//     scale: 0 1;
+//     animation: scroll-watcher linear;
+//     animation-timeline: scroll();
+// }
+
+// @keyframes scroll-watcher {
+//     to { scale: 1 1; }
+// }
+
+@media(prefers-reduced-motion: no-preference) {
+
+    #primary,
+    #secondary,
+    #card,
+    .card {
+        scale: .8;
+        opacity: 0;
+        animation: fade-in linear forwards;
+        animation-timeline: view();
+        animation-range: entry;
     }
 }
 
-.navbar-brand {
+.header-content>img {
+    display: grid;
+    place-items: center;
+    position: relative;
+    height: 50svh;
+    overflow-x: clip;
+    margin: auto;
+    overflow: hidden;
+}
+
+.header-content {
+    height: 100vh;
+    animation: fade-out linear;
+    animation-timeline: view();
+    animation-range: exit -22vh;
+    overflow: hidden;
+}
+
+#home-wallpaper>img {
+    grid-column: 1 / -1;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    opacity: 0.5;
+    object-fit: cover;
+    z-index: -1;
+    overflow: hidden;
+
+    transform-origin: bottom;
+
+    animation: header-image-animation linear forwards;
+    animation-timeline: view();
+    animation-range: exit;
+}
+
+@keyframes fade-in {
+    to {
+        scale: 1;
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes header-image-animation {
+    25% {
+        opacity: 1;
+    }
+
+    85% {
+        opacity: 0;
+        scale: 3
+    }
+}
+
+
+//------------- Menu page -------------//
+
+main {
+    background-image: url("../images/testeu.png");
+
+    scale: 1;
+    opacity: 0;
+    animation: fade-in linear forwards;
+    animation-timeline: view();
+    animation-range: entry;
+}
+
+#menu>h2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 5%;
+    margin: auto;
+}
+
+.link-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+    margin: auto;
+}
+
+.link-container>.link {
+    font-size: 3rem;
+    border-radius: .25rem;
+    padding: .5rem;
+    transform: translateX(100px);
+    opacity: 0;
+    transition: 150ms;
+    z-index: 3;
+    width: 50%;
+    height: auto;
+    margin: auto;
+    margin-top: 5vw;
+    background-size: cover;
+    background-position-x: center;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(74, 74, 74, 0.35);
+    box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.37);
+    backdrop-filter: blur(3.5px);
+    -webkit-backdrop-filter: blur(3.5px);
+    border-radius: 5px;
+}
+
+.link-container>.link>a {
+    text-align: center;
+    text-decoration: none;
+    color: $light;
+    background-color: rgba(0, 0, 0, 0.65);
+    width: 100%;
+}
+
+.link-container>.link#bio {
+    background-image: url("../images/tattoingStan.png");
+    background-size: cover;
+    background-position-y: 15vh;
+}
+
+.link-container>.link#book {
+    background-image: url("../images/back-tattoo.jpg");
+    background-size: cover;
+    background-position-y: 35vh;
+    background-position-x: center;
+}
+
+.link-container>.link#flash {
+    background-image: url("../images/tattoo_ex.jpg");
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: 26vh;
+}
+
+.link-container>.link#guest {
+    background-image: url("../images/white_logo.png");
+
+}
+
+#menu>.link.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.navbar {
+    width: 100%;
+    position: static;
+    animation: fade-nav linear;
+    animation-timeline: view();
+    animation-range-start: contain;
+}
+
+.navbar-visible {
     width: 100%;
     position: sticky;
+    top: 0;
+    z-index: 100;
+    opacity: 1;
 }
+
+@keyframes fade-nav {
+    from {
+        scale: 1;
+        opacity: 0;
+    }
+
+    to {
+        scale: 1;
+        opacity: 1;
+    }
+}
+
+.nav-link {
+    color: $light;
+    width: 50%;
+}
+
+//---------- Biography page ----------//
 
 #biography {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 2%;
-    grid-auto-rows: minmax(12.5rem, auto);
+    max-width: 100vw;
+    max-height: 100vh;
+    padding: 5%;
+    margin: auto;
 }
 
-#biography>h1 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.25rem;
-    grid-column: 1/5;
-    grid-row: 1;
+.cover-image {
+    height: 15%;
+    width: 100%;
+    overflow: hidden;
 }
 
-#biography>#primary {
-    margin-left: 5%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 10rem;
-    height: auto;
-    grid-column: 1;
-    grid-row: 2/5;
-    background: rgba( 74, 74, 74, 0.35 );
+.biography-content {
+    position: relative;
+    text-align: justify;
+}
+
+.biography-image {
+    width: 50%;
+    float: left;
+    margin: 0 1.25rem 1.25rem 0;
+}
+
+.biography-image-second {
+    width: 25%;
+    float: right;
+    margin: 0 0 1.25rem 1.25rem;
+    clear: right;
+}
+
+.biography-content::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.image-card {
+    flex: 0 0 auto;
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.biography-image {
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(74, 74, 74, 0.35);
     box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.37);
-    backdrop-filter: blur( 3.5px );
-    -webkit-backdrop-filter: blur( 3.5px );
-    border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    backdrop-filter: blur(3.5px);
+    -webkit-backdrop-filter: blur(3.5px);
+    border-radius: 5px;
 }
 
-#biography>#secondary {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: flex-end;
-    width: 10rem;
-    height: auto;
-    margin-left: auto;
-    margin-right: 5%;
-    background: rgba( 74, 74, 74, 0.35 );
+.biography-image-second {
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(74, 74, 74, 0.35);
     box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.37);
-    backdrop-filter: blur( 3.5px );
-    -webkit-backdrop-filter: blur( 3.5px );
-    border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    backdrop-filter: blur(3.5px);
+    -webkit-backdrop-filter: blur(3.5px);
+    border-radius: 5px;
 }
 
-#biography>#first-part {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 5%;
-    margin-right: 5%;
-    font-size: 1rem;
-    grid-column: 2/5;
-    grid-row: 2;
-}
-
-#biography>#second-part {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 5%;
-    margin-right: 5%;
-    font-size: 1rem;
-    grid-column: 1/5;
-    grid-row: 3;
-}
-
-#biography>#third-part {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 5%;
-    margin-right: 5%;
-    font-size: 1rem;
-    grid-column: 1/3;
-    grid-row: 4;
-}
+//---------- Calendar section ----------//
 
 div>#calendar-holder {
     width: 80%;
@@ -159,160 +338,154 @@ div>#calendar-holder {
     display: inline-block;
     padding: 2px 4px;
     color: $light;
-  }
+}
 
-  .fc-direction-ltr {
+.fc-direction-ltr {
     width: 80%;
     height: auto;
     margin: auto;
-  }
+}
 
-  .fc .fc-daygrid-day-number {
+.fc .fc-daygrid-day-number {
     text-decoration: none;
     color: $light;
-  }
+}
 
-  .fc .fc-toolbar.fc-header-toolbar {
+.fc .fc-toolbar.fc-header-toolbar {
     margin: auto;
     margin-bottom: 3.125vw;
-  }
+}
+
+//---------- Light theme -----------//
 
 .bg-light {
     --bs-bg-opacity: 1;
-background-color: rgba(var(--bs-black-rgb), var(--bs-bg-opacity)) !important;
+    background-color: rgba(var(--bs-black-rgb), var(--bs-bg-opacity)) !important;
 }
 
 [data-theme="light"] {
-    background-color: $light;
     background-image: url("../images/testeu_blanc.png");
+    background-color: $light;
     color: $dark-color;
-    #show-tattoo, #show-flash {
-        background: rgba( 74, 74, 74, 0.35 );
-        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-        backdrop-filter: blur( 3.5px );
-        -webkit-backdrop-filter: blur( 3.5px );
+
+    #show-tattoo,
+    #show-flash {
+        background: rgba(74, 74, 74, 0.35);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(3.5px);
+        -webkit-backdrop-filter: blur(3.5px);
         border-radius: 10px;
-        border: 1px solid rgba( 255, 255, 255, 0.18 );
+        border: 1px solid rgba(255, 255, 255, 0.18);
         width: 50%;
         height: auto;
         margin: auto;
     }
 
-    .card,  #card {
-        background: rgba( 74, 74, 74, 0.35 );
-        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-        backdrop-filter: blur( 3.5px );
-        -webkit-backdrop-filter: blur( 3.5px );
-        border-radius: 10px;
-        border: 1px solid rgba( 255, 255, 255, 0.18 );
+    main {
+        background-image: url("../images/testeu_blanc.png");
+        scale: 1;
+        opacity: 0;
+        animation: fade-in linear forwards;
+        animation-timeline: view();
+        animation-range: entry;
+    }
+
+    .card,
+    #card,
+    .link {
+        background: rgba(74, 74, 74, 0.35);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(3.5px);
+        -webkit-backdrop-filter: blur(3.5px);
+        border-radius: 5px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
         width: 50%;
         height: auto;
         margin: auto;
         margin-top: 5vw;
     }
 
-    .card-title,  .card-text {
+    .card-title,
+    .card-text {
         color: $dark-color;
     }
 
     .bg-light {
         --bs-bg-opacity: 1;
-    background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
-    }
-    #biography>#primary {
-        margin-left: 5%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 10rem;
-        height: auto;
-        grid-column: 1;
-        grid-row: 2/5;
-        background: rgba( 74, 74, 74, 0.35 );
-        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-        backdrop-filter: blur( 3.5px );
-        -webkit-backdrop-filter: blur( 3.5px );
-        border-radius: 10px;
-        border: 1px solid rgba( 255, 255, 255, 0.18 );
-    }
-
-    #biography>#secondary {
-        display: flex;
-        flex-direction: row-reverse;
-        align-items: center;
-        justify-content: flex-end;
-        width: 10rem;
-        height: auto;
-        margin-left: auto;
-        margin-right: 5%;
-        background: rgba( 74, 74, 74, 0.35 );
-        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-        backdrop-filter: blur( 3.5px );
-        -webkit-backdrop-filter: blur( 3.5px );
-        border-radius: 10px;
-        border: 1px solid rgba( 255, 255, 255, 0.18 );
+        background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
     }
 
     .fc .fc-col-header-cell-cushion {
         display: inline-block;
         padding: 2px 4px;
         color: $dark-color;
-      }
+    }
 
-      .fc .fc-daygrid-day-number {
+    .fc .fc-daygrid-day-number {
         text-decoration: none;
         color: $dark-color;
-      }
+    }
 
-      @media(min-width: 819px) {
-        .card,  #card {
-            background: rgba( 74, 74, 74, 0.35 );
-            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-            backdrop-filter: blur( 3.5px );
-            -webkit-backdrop-filter: blur( 3.5px );
-            border-radius: 10px;
-            border: 1px solid rgba( 255, 255, 255, 0.18 );
+    #biography {
+        background-image: url("../images/testeu_blanc.png");
+    }
+
+    @media(min-width: 819px) {
+
+        .card,
+        #card,
+        .link {
+            background: rgba(74, 74, 74, 0.35);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(3.5px);
+            -webkit-backdrop-filter: blur(3.5px);
+            border-radius: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
             width: 30%;
             height: auto;
             margin: auto;
             margin-top: 5vw;
         }
-      }
+    }
 }
 
-[data-theme='light'] a,
 [data-theme="light"] .btn {
     background-color: $light;
     color: $dark-color;
     /* ... autres styles ... */
 }
 
-#show-tattoo, #show-flash {
-    background: rgba( 74, 74, 74, 0.35 );
+//----------- Details ------------//
+
+#show-tattoo,
+#show-flash {
+    background: rgba(74, 74, 74, 0.35);
     box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.37);
-    backdrop-filter: blur( 3.5px );
-    -webkit-backdrop-filter: blur( 3.5px );
-    border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    backdrop-filter: blur(3.5px);
+    -webkit-backdrop-filter: blur(3.5px);
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
     width: 50%;
     height: auto;
     margin: auto;
 }
 
-.card, #card {
-    background: rgba( 74, 74, 74, 0.35 );
+.card,
+#card {
+    background: rgba(74, 74, 74, 0.35);
     box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.37);
-    backdrop-filter: blur( 3.5px );
-    -webkit-backdrop-filter: blur( 3.5px );
-    border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    backdrop-filter: blur(3.5px);
+    -webkit-backdrop-filter: blur(3.5px);
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
     width: 50%;
     height: auto;
     margin: auto;
     margin-top: 5vw;
 }
 
-.card-title, .card-text {
+.card-title,
+.card-text {
     color: $light
 }
 
@@ -347,179 +520,181 @@ h6 {
     justify-content: center;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px;
+    margin: auto;
+    width: 60%;
+}
+
+button.btn.btn-lg.btn-primary {
+    margin: auto;
+    margin-top: 3vh;
+    font-size: 1rem;
+    width: 30%;
+}
+
+.previous-next {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1rem;
+    text-decoration: none;
+    margin: auto;
+}
+
+.card-body {
+    color: $light;
+}
+
+.link.show:hover {
+    scale: 1.2;
+}
+
+//--------- Media queries --------//
+
 @media (max-width: 436px) {
-    #biography {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 2%;
-        grid-auto-rows: minmax(12rem, auto);
+    .link-container>.link>a {
+        text-align: center;
+        text-decoration: none;
+        color: $light;
+        background-color: rgba(0, 0, 0, 0.65);
+        width: 100%;
+        font-size: 1.5rem;
     }
 
-    #biography>h1 {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 2.25rem;
-        grid-column: 1/5;
-        grid-row: 1;
+    .link-container>.link#bio {
+        background-size: cover;
+        background-position-y: 75vh;
     }
 
-    #biography>#primary {
-        margin-left: 5%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 10rem;
-        height: auto;
-        grid-column: 1;
-        grid-row: 2/5;
+    .link-container>.link#book {
+        background-position-y: 42vh;
+        background-position-x: center;
     }
 
-    #biography>#secondary {
-        display: flex;
-        flex-direction: row-reverse;
-        align-items: center;
-        justify-content: flex-end;
-        width: 10rem;
-        height: auto;
-        margin-left: auto;
-        margin-right: 5%;
+    .link-container>.link#flash {
+        background-size: cover;
+        background-position-y: 35vh;
     }
 
-    #biography>#first-part {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-left: 5%;
-        margin-right: 5%;
-        font-size: 0.75rem;
-        grid-column: 2/5;
-        grid-row: 2;
-    }
-
-    #biography>#second-part {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-left: 5%;
-        margin-right: 5%;
-        font-size: 0.75rem;
-        grid-column: 1/5;
-        grid-row: 3;
-    }
-
-    #biography>#third-part {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-left: 5%;
-        margin-right: 5%;
-        font-size: 0.75rem;
-        grid-column: 1/3;
-        grid-row: 4;
+    .link-container>.link#guest {
+        background-position-y: 26vh;
     }
 }
 
-@media(min-width: 819px) {
-    #biography {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 2%;
-        grid-auto-rows: minmax(12rem, auto);
-    }
-
-    #biography>h1 {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+@media (max-width: 628px) {
+    .link-container>.link>a {
+        text-align: center;
+        text-decoration: none;
+        color: $light;
+        background-color: rgba(0, 0, 0, 0.65);
+        width: 100%;
         font-size: 2.25rem;
-        grid-column: 1/5;
-        grid-row: 1;
     }
 
-    #biography>#primary {
-        margin-left: 5%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 25vw;
-        height: auto;
-        grid-column: 1;
-        grid-row: 2/5;
+    .link-container>.link#bio {
+        background-size: cover;
+        background-position-y: 37vh;
     }
 
-    #biography>#secondary {
-        display: flex;
-        flex-direction: row-reverse;
-        align-items: center;
-        justify-content: flex-end;
-        width: 25vw;
-        height: auto;
-        margin-left: auto;
-        margin-right: 5%;
+    .link-container>.link#book {
+        background-position-y: 23vh;
+        background-position-x: center;
     }
 
-    #biography>#first-part {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-left: 5%;
-        margin-right: 5%;
-        font-size: 1.25em;
-        grid-column: 2/5;
-        grid-row: 2;
+    .link-container>.link#flash {
+        background-size: cover;
+        background-position-y: 23vh;
     }
 
-    #biography>#second-part {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-left: 5%;
-        margin-right: 5%;
-        font-size: 1.25rem;
-        grid-column: 1/5;
-        grid-row: 3;
+    .link-container>.link#guest {
+        background-position-y: 26vh;
     }
+}
 
-    #biography>#third-part {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-left: 5%;
-        margin-right: 5%;
-        font-size: 1.25rem;
-        grid-column: 1/3;
-        grid-row: 4;
-    }
+@media(min-width: 992px) {
     .card {
-        background: rgba( 74, 74, 74, 0.35 );
+        background: rgba(74, 74, 74, 0.35);
         box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.37);
-        backdrop-filter: blur( 3.5px );
-        -webkit-backdrop-filter: blur( 3.5px );
-        border-radius: 10px;
-        border: 1px solid rgba( 255, 255, 255, 0.18 );
+        backdrop-filter: blur(3.5px);
+        -webkit-backdrop-filter: blur(3.5px);
+        border-radius: 5px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
         width: 30%;
         height: auto;
         margin: auto;
         margin-top: 5vw;
     }
 
-    #card {
-        justify-content: space-evenly;
-        background: rgba( 74, 74, 74, 0.35 );
-        box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.37);
-        backdrop-filter: blur( 3.5px );
-        -webkit-backdrop-filter: blur( 3.5px );
-        border-radius: 10px;
-        border: 1px solid rgba( 255, 255, 255, 0.18 );
-        width: 30%;
-        height: auto;
-        margin: auto;
-        margin-top: 5vw;
+    .card:hover .card-img-top {
+        transform: rotateY(-180deg);
     }
 
+    .card-img-top {
+        border: solid 2px #C1B596;
+        border-radius: 8px;
+        height: 100%;
+        backface-visibility: hidden;
+        transition: 0.5s;
+        object-fit: cover;
+    }
+
+    .list-group.list-group-flush {
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: solid 2px #C1B596;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        transform: rotateY(180deg);
+        transition: 0.5s;
+    }
+
+    .card:hover .card-body {
+        transform: rotateY(0);
+    }
+
+    .card-body {
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: solid 2px #C1B596;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        transform: rotateY(180deg);
+        transition: 0.5s;
+        color: $light;
+    }
+
+    .card-body {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        text-align: center;
+        color: $light;
+    }
 }
 
+  .card-container {
+    display: grid;
+    white-space: nowrap;
+    overflow-x: auto;
+    gap: 2%;
+}
 
-
+.card {
+    flex: 0 0 auto;
+    height: auto;
+}
 

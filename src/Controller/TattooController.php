@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route('/tattoo')]
 class TattooController extends AbstractController
@@ -21,7 +22,7 @@ class TattooController extends AbstractController
             'tattoos' => $tattooRepository->findAll(),
         ]);
     }
-
+    #[IsGranted('ROLE_ADMIN')]
     #[Route('/new', name: 'app_tattoo_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -50,6 +51,7 @@ class TattooController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_ADMIN')]
     #[Route('/{id}/edit', name: 'app_tattoo_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Tattoo $tattoo, EntityManagerInterface $entityManager): Response
     {
@@ -68,6 +70,7 @@ class TattooController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_ADMIN')]
     #[Route('/{id}', name: 'app_tattoo_delete', methods: ['POST'])]
     public function delete(Request $request, Tattoo $tattoo, EntityManagerInterface $entityManager): Response
     {

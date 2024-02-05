@@ -7,22 +7,26 @@
 	{% include 'home/_navbar.html.twig' %}
 	<h1 id="flash-index">Flash</h1>
 
-	{% for flash in flashes %}
-		<div id="card">
-			<a href="{{ path('app_flash_show', {'id': flash.id}) }}"><img id="flash" src="{{ vich_uploader_asset(flash) }}" class="card-img-top" alt="{{ flash.id }}"></a>
-			<div class="card-body">
-				<p class="card-text">
-					<h6>{{ flash.realisationTime ? flash.realisationTime|date('H:i') : '' }}</h6>
-					<h6>{{ flash.price }}€</h6>
-					<h6>Available :
-						{{ flash.available ? 'Yes' : 'No' }}</h6>
-				</p>
-			</div>
-		</div>
-		<a href="{{ path('app_flash_edit', {'id': flash.id}) }}">edit</a>
-	{% else %}
-		<h3>no records found</h3>
-	{% endfor %}
+	<div class="row row-cols-1 row-cols-lg-3 g-4">
+		{% for flash in flashes %}
 
-	<a href="{{ path('app_flash_new') }}">Create new</a>
+			<div class="col">
+				<div class="card">
+					<a href="{{ path('app_flash_show', {'id': flash.id}) }}"><img id="flash" src="{{ vich_uploader_asset(flash) }}" class="card-img-top" alt="{{ flash.id }}"></a>
+					<div class="card-body">
+						<p class="card-text">
+							<h6>Time needed:
+								{{ flash.realisationTime ? flash.realisationTime|date('H:i') : '' }}</h6>
+							<h6>Price:
+								{{ flash.price }}€</h6>
+							<h6>Available :
+								{{ flash.available ? 'Yes' : 'No' }}</h6>
+						</p>
+					</div>
+				</div>
+			</div>
+		{% else %}
+			<h3>No flash found</h3>
+		{% endfor %}
+	</div>
 {% endblock %}

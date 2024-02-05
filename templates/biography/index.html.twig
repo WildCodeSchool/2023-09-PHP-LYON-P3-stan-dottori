@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Biography
+{% endblock %}
+{% block body_class %}page-specific-style
+{% endblock %}
+{% block body %}
+	{% include 'home/_navbar.html.twig' %}
+	<section id="biography">
+		<h1>Stan Dottori: superstar tattoo Artist</h1>
+		<div class="biography-content">
+			<img src="{{ asset('build/images/StanD.webp') }}" alt="" class="biography-image">
+			<p id="first-part">
+				Lorem ipsum dolor sit amet. Vel nihil reiciendis ad recusandae suscipit qui quas
+		        aliquid qui inventore nobis hic dicta tenetur. Non laborum omnis et commodi
+                accusamus sit dolor sequi. Aut nostrum nostrum id tenetur quos qui quaerat
+				eveniet cum illum culpa. Ad modi nostrum id obcaecati galisum qui maiores
+				aperiam ut voluptates aliquam et praesentium expedita ad maxime assumenda
+				aut delectus minus. Qui saepe voluptate et animi atque et error temporibus quo
+				quae velit nam nostrum internos et possimus sunt. Ut quasi rerum eos voluptas
+				vero qui quasi necessitatibus nam dignissimos tempore qui dolorum cupiditate
+				hic consequuntur esse non natus pariatur. Et asperiores nihil</p>
+			<img src="{{ asset('build/images/tattoo_ex5.jpg') }}" alt="" class="biography-image-second">
+			<p>id nemo tenetur vel
+					obcaecati repudiandae rem dignissimos numquam a explicabo tenetur sit galisum
+					culpa. Sed labore pariatur et voluptas soluta sit facilis blanditiis. Qui saepe
+					voluptate et animi atque et error temporibus quo quae velit nam nostrum internos
+					et possimus sunt. Ut quasi rerum eos voluptas vero qui quasi necessitatibus nam
+					dignissimos tempore qui dolorum cupiditate hic consequuntur esse non natus
+					pariatur. Et asperiores nihil id nemo tenetur vel obcaecati repudiandae rem
+					dignissimos numquam a explicabo tenetur sit galisum culpa. Sed labore pariatur et
+					voluptas soluta sit facilis blanditiis.
+			</p>
+		</div>
+		<br>
+		<div id="pagination">
+			<div class="previous-next">
+				<a href="{{ path('app_home') }}">
+					<i class="fa-solid fa-chevron-left"></i>
+				</a>
+				<a href="{{ path('app_tattoo_index') }}">
+					<i class="fa-solid fa-chevron-right"></i>
+				</a>
+			</div>
+		</div>
+	</section>
+{% endblock %}

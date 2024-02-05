@@ -21,15 +21,15 @@ document.addEventListener('DOMContentLoaded', function() {
         var themeIcon = document.getElementById('theme-icon');
         if (theme=== 'dark') {
             body.setAttribute('data-theme', 'light');
-            themeIcon.innerHTML = '☼'//sun
+            themeIcon.innerHTML = '<i class="fa-solid fa-sun"></i>'//sun
         } else {
             body.setAttribute('data-theme', 'dark');
-            themeIcon.innerHTML = '&#9790;';//moon
+            themeIcon.innerHTML = '<i class="fa-solid fa-moon"></i>';//moon
         }
     });
 });
 
-const cards = document.querySelectorAll("card")
+const links = document.querySelectorAll(".link")
 
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -39,6 +39,15 @@ const observer = new IntersectionObserver(entries => {
   threshold: 1,
 })
 
-cards.forEach(card => {
-  observer.observe(card)
+links.forEach(link => {
+  observer.observe(link)
 })
+
+window.addEventListener('scroll', function() {
+  var navbar = document.querySelector('.navbar');
+  if (window.scrollY > window.innerHeight) {
+      navbar.classList.add('navbar-visible');
+  } else {
+      navbar.classList.remove('navbar-visible');
+  }
+});
