@@ -19,9 +19,11 @@ document.addEventListener('DOMContentLoaded', function() {
         var body = document.body;
         var theme = body.getAttribute('data-theme');
         var themeIcon = document.getElementById('theme-icon');
+        var themeLogo = document.getElementById('theme-logo');
         if (theme=== 'dark') {
             body.setAttribute('data-theme', 'light');
             themeIcon.innerHTML = '<i class="fa-solid fa-sun"></i>'//sun
+            themeLogo.innerHTML = url('../images/black_logo.png');
         } else {
             body.setAttribute('data-theme', 'dark');
             themeIcon.innerHTML = '<i class="fa-solid fa-moon"></i>';//moon
