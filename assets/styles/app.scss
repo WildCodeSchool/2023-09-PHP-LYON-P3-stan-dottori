@@ -17,6 +17,13 @@ body {
     overflow-x: hidden;
 }
 
+@font-face {
+    font-family: 'KosanNonCommercial';
+    src: url('../styles/KosanNonCommercial.otf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
 //--------------- Home page -------------//
 
 .header-scroll {
@@ -230,18 +237,7 @@ main {
 
 .navbar {
     width: 100%;
-    position: static;
-    animation: fade-nav linear;
-    animation-timeline: view();
-    animation-range-start: contain;
-}
-
-.navbar-visible {
-    width: 100%;
     position: sticky;
-    top: 0;
-    z-index: 100;
-    opacity: 1;
 }
 
 @keyframes fade-nav {
@@ -258,7 +254,6 @@ main {
 
 .nav-link {
     color: $light;
-    width: 50%;
 }
 
 //---------- Biography page ----------//
@@ -268,12 +263,6 @@ main {
     max-height: 100vh;
     padding: 5%;
     margin: auto;
-}
-
-.cover-image {
-    height: 15%;
-    width: 100%;
-    overflow: hidden;
 }
 
 .biography-content {
@@ -431,6 +420,10 @@ div>#calendar-holder {
         background-image: url("../images/testeu_blanc.png");
     }
 
+    .nav-link {
+        color: $dark-color;
+    }
+
     @media(min-width: 819px) {
 
         .card,
@@ -555,6 +548,92 @@ button.btn.btn-lg.btn-primary {
     scale: 1.2;
 }
 
+//--------- NeonText --------//
+
+@media(prefers-reduced-motion: no-preference) {
+.neonText {
+    font-size: 6rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    font-family: "KosanNonCommercial", sans-serif;
+    color: #fff;
+    text-shadow:
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 21px #fff,
+        0 0 42px rgb(255, 0, 170),
+        0 0 82px rgb(255, 0, 170),
+        0 0 92px rgb(255, 0, 170),
+        0 0 102px rgb(255, 0, 170),
+        0 0 151px rgb(255, 0, 170);
+        animation: flicker 0.11s ease-in-out infinite alternate;
+  }
+
+  #biography-title {
+    margin-bottom: 3rem;
+  }
+
+  h1, h2 {
+    text-align: center;
+    font-weight: 400;
+  }
+
+
+  h2 {
+      font-size: 1.8rem;
+  }
+
+  @keyframes pulsate {
+
+    100% {
+        text-shadow:
+        0 0 4px #fff,
+        0 0 11px #fff,
+        0 0 19px #fff,
+        0 0 40px rgb(255, 0, 170),
+        0 0 80px rgb(255, 0, 170),
+        0 0 90px rgb(255, 0, 170),
+        0 0 100px rgb(255, 0, 170),
+        0 0 150px rgb(255, 0, 170);
+    }
+
+    0% {
+      text-shadow:
+      0 0 4px #fff,
+      0 0 10px #fff,
+      0 0 18px #fff,
+      0 0 38px rgb(255, 0, 170),
+      0 0 73px rgb(255, 0, 170),
+      0 0 80px rgb(255, 0, 170),
+      0 0 94px rgb(255, 0, 170),
+      0 0 140px rgb(255, 0, 170);
+  }
+}
+
+  /* Flickering animation */
+
+@keyframes flicker {
+
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+
+        text-shadow:
+        0 0 4px #fff,
+        0 0 11px #fff,
+        0 0 19px #fff,
+        0 0 40px rgb(255, 0, 170),
+        0 0 80px rgb(255, 0, 170),
+        0 0 90px rgb(255, 0, 170),
+        0 0 100px rgb(255, 0, 170),
+        0 0 150px rgb(255, 0, 170);
+
+    }
+
+    20%, 24%, 55% {
+        text-shadow: none;
+    }
+  }
+}
+
 //--------- Media queries --------//
 
 @media (max-width: 436px) {
@@ -585,6 +664,13 @@ button.btn.btn-lg.btn-primary {
     .link-container>.link#guest {
         background-position-y: 26vh;
     }
+
+    .neonText#biography-title {
+        font-size: 4rem;
+        }
+    .neonText#tattoo-index {
+        font-size: 4.5rem;
+        }
 }
 
 @media (max-width: 628px) {
