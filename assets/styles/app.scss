@@ -54,15 +54,15 @@ body {
 }
 
 .fa-solid.fa-angles-down {
-    animation: test 0.8s linear infinite alternate;
+    animation: evidence 0.8s linear infinite alternate;
 }
 
 .fa-solid.fa-angles-down:hover {
-    animation: test linear forwards;
+    animation: evidence linear forwards;
     animation-range: entry;
 }
 
-@keyframes test {
+@keyframes evidence {
     from {
         scale: 1;
     }
@@ -711,6 +711,9 @@ button.btn.btn-lg.btn-primary {
         font-size: 4rem;
         }
     .neonText#tattoo-index {
+        font-size: 4.5rem;
+        }
+    .neonText#home-title {
         font-size: 4.5rem;
         }
 }
