@@ -38,18 +38,9 @@ const observer = new IntersectionObserver(entries => {
     entry.target.classList.toggle("show", entry.isIntersecting)
   })
 }, {
-  threshold: 1,
+  threshold: 0.5,
 })
 
 links.forEach(link => {
   observer.observe(link)
-})
-
-window.addEventListener('scroll', function() {
-  var navbar = document.querySelector('.navbar');
-  if (window.scrollY > window.innerHeight) {
-      navbar.classList.add('navbar-visible');
-  } else {
-      navbar.classList.remove('navbar-visible');
-  }
 });
